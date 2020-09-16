@@ -1,0 +1,12 @@
+#Archivos a ser ignorados
+*.ini
+bin/
+obj/
+Debug/
+*.cache
+*.suo
+*.suo
+*.dll
+*.dll
+
+
