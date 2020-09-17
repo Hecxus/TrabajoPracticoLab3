@@ -19,7 +19,7 @@ namespace Negocio
             
             conexion.ConnectionString = "data source = CAJS0718; initial catalog = CATALOGO_DB; integrated security = sspi";
             comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "SELECT Nombre FROM ARTICULOS";
+            comando.CommandText = "SELECT Nombre, ImagenUrl FROM ARTICULOS";
             comando.Connection = conexion;
 
             conexion.Open();
@@ -29,6 +29,7 @@ namespace Negocio
             {
                 Articulos aux = new Articulos();
                 aux.Nombre = lector.GetString(0);
+                aux.Imagen = (string)lector["ImagenUrl"];
                 lista.Add(aux);
             }
             conexion.Close();
