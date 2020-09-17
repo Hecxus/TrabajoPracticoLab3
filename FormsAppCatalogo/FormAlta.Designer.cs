@@ -164,6 +164,7 @@
             this.Controls.Add(this.lblNombre);
             this.Name = "FormAlta";
             this.Text = "Alta Articulo";
+            this.Load += new System.EventHandler(this.FormAlta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

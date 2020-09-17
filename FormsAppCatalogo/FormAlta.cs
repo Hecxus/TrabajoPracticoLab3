@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Negocio;
 
 namespace FormsAppCatalogo
 {
@@ -27,8 +28,15 @@ namespace FormsAppCatalogo
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             Articulos nuevo = new Articulos();
+            ArticuloNegocio negocio = new ArticuloNegocio();
+
             nuevo.Nombre = txtNombre.Text;
             nuevo.Descripcion = txtDescripcion.Text;
+            //nuevo.Precio = txtPrecio.Text; -- como asignar a la variable precio?
+
+            negocio.agregar(nuevo);
+
+            Close();
         }
 
         private void keyPrecio(object sender, KeyPressEventArgs e)
@@ -39,6 +47,14 @@ namespace FormsAppCatalogo
                 e.Handled = false;
             else
                 e.Handled = true;
+        }
+
+        private void FormAlta_Load(object sender, EventArgs e)
+        {
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            cbxMarca.DataSource = marcaNegocio.listar();
+
+           
         }
     }
 }

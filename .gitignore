@@ -8,5 +8,8 @@ Debug/
 *.suo
 *.dll
 *.dll
-
-
+*.Designer.cs
+*sln
+*resx
+/Properties/
+*.csproj

@@ -20,6 +20,10 @@ namespace FormsAppCatalogo
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            cargar();
+        }
+        private void cargar()
+        {
             ArticuloNegocio negocio = new ArticuloNegocio();
             dgvLista.DataSource = negocio.listar();
             dgvLista.Columns[3].Visible = false;
@@ -29,7 +33,6 @@ namespace FormsAppCatalogo
             dgvLista.Columns[6].Visible = false;
             dgvLista.Columns[1].Visible = false;
         }
-
         private void dgvLista_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -48,6 +51,7 @@ namespace FormsAppCatalogo
         {
             FormAlta alta = new FormAlta();
             alta.ShowDialog();
+            cargar();
         }
     }
 }
