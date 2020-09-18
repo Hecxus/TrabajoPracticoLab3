@@ -3,9 +3,9 @@ Se necesita una aplicación para la gestión de artículos de un catálogo de un
 
 Deberá ser un programa de escritorio que contemple la administración de artículos. Las funcionalidades que deberá tener la aplicación serán:
 
-Listado de artículos.
+#Listado de artículos.-->TRERMINADO
 Búsqueda de artículos por distintos criterios.
-Agregar artículos.
+#Agregar artículos. (FALTA AGREGAR PRECIO Y CATEGORIAS DESPLEGABLE)
 Modificar artículos.
 Eliminar artículos.
 Ver detalle de un artículo.
