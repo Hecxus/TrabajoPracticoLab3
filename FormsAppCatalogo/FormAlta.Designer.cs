@@ -40,6 +40,7 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.nudPrecio = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,7 +91,7 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(35, 178);
+            this.lblPrecio.Location = new System.Drawing.Point(35, 173);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(40, 13);
             this.lblPrecio.TabIndex = 5;
@@ -120,7 +121,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(47, 231);
+            this.btnAceptar.Location = new System.Drawing.Point(62, 258);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 10;
@@ -130,7 +131,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(208, 231);
+            this.btnCancelar.Location = new System.Drawing.Point(196, 258);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 11;
@@ -140,7 +141,7 @@
             // 
             // nudPrecio
             // 
-            this.nudPrecio.Location = new System.Drawing.Point(116, 176);
+            this.nudPrecio.Location = new System.Drawing.Point(116, 171);
             this.nudPrecio.Maximum = new decimal(new int[] {
             500000,
             0,
@@ -151,13 +152,22 @@
             this.nudPrecio.Size = new System.Drawing.Size(121, 20);
             this.nudPrecio.TabIndex = 12;
             this.nudPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.nudPrecio.Leave += new System.EventHandler(this.nudPrecio_Leave);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(116, 214);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "PENDIENTE URL";
             // 
             // FormAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(330, 312);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.nudPrecio);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -193,5 +203,6 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.NumericUpDown nudPrecio;
+        private System.Windows.Forms.Label label1;
     }
 }

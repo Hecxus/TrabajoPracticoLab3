@@ -59,9 +59,7 @@ namespace FormsAppCatalogo
            
         }
 
-        private void nudPrecio_Leave(object sender, EventArgs e)
-        {
 
-        }
+
     }
 }

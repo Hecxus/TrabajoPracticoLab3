@@ -9,6 +9,8 @@ namespace Dominio
 {
     public class Articulos
     {
+        public int ID { get; set; }
+
         private int codArticulo;
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
@@ -17,7 +19,13 @@ namespace Dominio
         public float Precio { get; set; }
         public  Categoria categoria { get; set; }
         public Marca marca { get; set; }
-        
-    }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
+    }   
+    
     
 }

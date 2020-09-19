@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dominio;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace Negocio
 {
@@ -19,7 +20,7 @@ namespace Negocio
             
             conexion.ConnectionString = "data source = DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
             comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "SELECT Nombre, ImagenUrl FROM ARTICULOS";
+            comando.CommandText = "SELECT id,Nombre, descripcion, ImagenUrl FROM ARTICULOS";
             comando.Connection = conexion;
 
             conexion.Open();
@@ -28,7 +29,9 @@ namespace Negocio
             while(lector.Read())
             {
                 Articulos aux = new Articulos();
-                aux.Nombre = lector.GetString(0);
+                aux.ID= lector.GetInt32(0);
+                aux.Nombre = lector.GetString(1);
+                aux.Descripcion= lector.GetString(2);
 
                 try
                 {
@@ -58,6 +61,28 @@ namespace Negocio
 
             conexion.Open();
             comando.ExecuteNonQuery();
+        }
+
+
+        public bool Delete(Articulos articulo)
+        {
+            SqlConnection conexion = new SqlConnection();
+            SqlCommand comando = new SqlCommand();
+            try
+            { 
+                conexion.ConnectionString = "data source = DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = String.Format("delete from articulos where id = {0}",articulo.ID);
+            
+                comando.Connection = conexion;
+
+                conexion.Open();
+                comando.ExecuteNonQuery();
+                return true;
+            }catch
+            {
+                return false;
+            }
         }
     }
 }

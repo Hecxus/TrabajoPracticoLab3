@@ -5,9 +5,9 @@ Deberá ser un programa de escritorio que contemple la administración de artíc
 
 #Listado de artículos.-->TRERMINADO
 Búsqueda de artículos por distintos criterios.
-#Agregar artículos. (Falta mapeo de id categoria y marca)
+#Agregar artículos. (TERMINADO)
 Modificar artículos.
-Eliminar artículos.
+Eliminar artículos. (TERMINADO)
 Ver detalle de un artículo.
 Toda ésta información deberá ser persistida en una base de datos ya existente (la cual se adjunta).
 

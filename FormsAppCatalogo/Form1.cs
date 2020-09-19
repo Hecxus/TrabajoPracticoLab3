@@ -11,9 +11,9 @@ using Negocio;
 using Dominio;
 namespace FormsAppCatalogo
 {
-    public partial class Form1 : Form
+    public partial class CatalogoPrincipal : Form
     {
-        public Form1()
+        public CatalogoPrincipal()
         {
             InitializeComponent();
         }
@@ -26,25 +26,39 @@ namespace FormsAppCatalogo
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             dgvLista.DataSource = negocio.listar();
-            dgvLista.Columns[3].Visible = false;
+            dgvLista.Columns[0].Visible = false;
             dgvLista.Columns[2].Visible = false;
+            dgvLista.Columns[3].Visible = false;
             dgvLista.Columns[4].Visible = false;
             dgvLista.Columns[5].Visible = false;
             dgvLista.Columns[6].Visible = false;
-            dgvLista.Columns[1].Visible = false;
+
+            lbArticulos.DataSource = negocio.listar();
         }
         private void dgvLista_SelectionChanged(object sender, EventArgs e)
         {
+            //try
+            //{
+            //    Articulos art = (Articulos)dgvLista.CurrentRow.DataBoundItem;
+            //    pbArticulos.Load(art.Imagen);
+            //}
+            //catch(Exception) 
+            //{
+            
+            //}
+            
+        }
+        private void lbArticulos_SelectedValueChanged(object sender, EventArgs e)
+        {
             try
             {
-                Articulos art = (Articulos)dgvLista.CurrentRow.DataBoundItem;
+                Articulos art = (Articulos)lbArticulos.SelectedItem;
                 pbArticulos.Load(art.Imagen);
             }
-            catch(Exception) 
+            catch (Exception)
             {
-            
+
             }
-            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -53,5 +67,28 @@ namespace FormsAppCatalogo
             alta.ShowDialog();
             cargar();
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Desea eliminar este articulo?", "Eliminar articulo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                ArticuloNegocio aritculoNegocio = new ArticuloNegocio();
+                if (aritculoNegocio.Delete((Articulos)lbArticulos.SelectedItem))
+                {
+                    MessageBox.Show("El articulo fue borrado exitosamente.");
+                }
+                else
+                {
+                    MessageBox.Show("El articulo no pudo ser borrado.");
+                }
+            }
+            cargar();
+
+        }
+
+
+
     }
 }

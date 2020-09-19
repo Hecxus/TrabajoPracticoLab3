@@ -28,7 +28,7 @@ namespace Negocio
             while (lector.Read())
             {
                 Marca aux = new Marca();
-
+                aux.ID = lector.GetInt32(0);
                 aux.Descripcion = lector.GetString(1);
 
                 lista.Add(aux);
