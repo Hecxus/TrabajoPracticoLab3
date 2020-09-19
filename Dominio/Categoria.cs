@@ -8,6 +8,7 @@ namespace Dominio
 {
     public class Categoria
     {
+        //comentario prueba push
         public int ID;
         public string Descripcion;
         public string categoria;
