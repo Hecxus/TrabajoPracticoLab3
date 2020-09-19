@@ -8,7 +8,7 @@ Búsqueda de artículos por distintos criterios.
 #Agregar artículos. (TERMINADO)
 Modificar artículos.
 Eliminar artículos. (TERMINADO)
-Ver detalle de un artículo.
+Ver detalle de un artículo. (Parcialmente terminado -> Falta marca y categoria)
 Toda ésta información deberá ser persistida en una base de datos ya existente (la cual se adjunta).
 
 Los datos mínimos con los que deberá contar el artículo son los siguientes:
@@ -28,4 +28,6 @@ Etapa 2: Construir la interacción con la base de datos y validaciones correspon
 
 
 
-13:23  Se agrega clase CategoriaNegocio con el metodo listar. Se agrego al agregar articulos categoria desplegable y precio. Falta mapear ID cat y marca para el insert (inserta bien pero con id 0)
+Se agrega clase CategoriaNegocio con el metodo listar. Se agrego al agregar articulos categoria desplegable y precio. Falta mapear ID cat y marca para el insert (inserta bien pero con id 0)
+Corregio el mapeo. Se agrego opcion de eliminar con validacion. Se cambio grilla por lista simple.
+Se agrego parcialmente los detalels del articulo seleccionado

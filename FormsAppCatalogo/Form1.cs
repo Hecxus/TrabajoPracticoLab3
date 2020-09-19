@@ -44,15 +44,27 @@ namespace FormsAppCatalogo
             //}
             //catch(Exception) 
             //{
-            
+
             //}
-            
+
         }
         private void lbArticulos_SelectedValueChanged(object sender, EventArgs e)
         {
             try
             {
                 Articulos art = (Articulos)lbArticulos.SelectedItem;
+
+                // Pone los datos en el detalle:
+
+                if (art.Descripcion.Length > 1) // + el final de la cadena (en blanco !=NULL)
+                    labelDescriptionValue.Text = art.Descripcion;
+                else
+                    labelDescriptionValue.Text = "Sin descripcion";
+
+
+                labelCodArtValue.Text = art.codArticulo.ToString();
+
+
                 pbArticulos.Load(art.Imagen);
             }
             catch (Exception)

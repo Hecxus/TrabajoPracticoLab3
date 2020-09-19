@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Dominio;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Security.AccessControl;
 
 namespace Negocio
 {
@@ -20,7 +21,7 @@ namespace Negocio
             
             conexion.ConnectionString = "data source = DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
             comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "SELECT id,Nombre, descripcion, ImagenUrl FROM ARTICULOS";
+            comando.CommandText = "SELECT id,codigo,Nombre, descripcion,idMarca,idCategoria, ImagenUrl FROM ARTICULOS";
             comando.Connection = conexion;
 
             conexion.Open();
@@ -30,8 +31,18 @@ namespace Negocio
             {
                 Articulos aux = new Articulos();
                 aux.ID= lector.GetInt32(0);
-                aux.Nombre = lector.GetString(1);
-                aux.Descripcion= lector.GetString(2);
+
+                try {aux.codArticulo = lector.GetString(1); 
+                }catch (Exception E)
+                {aux.codArticulo = "Sin codigo";}
+                
+                aux.Nombre = lector.GetString(2);
+
+                try { aux.Descripcion = lector.GetString(3);
+                }catch { aux.Descripcion = "Sin descripcion"; }
+                
+                //aux.cate = lector.GetInt32(4);
+                //aux.codArticulo = lector.GetInt32(5);
 
                 try
                 {

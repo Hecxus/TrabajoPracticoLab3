@@ -33,6 +33,14 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.lbArticulos = new System.Windows.Forms.ListBox();
+            this.labelDescriptionHeader = new System.Windows.Forms.Label();
+            this.labelDescriptionValue = new System.Windows.Forms.Label();
+            this.labelCodArtHeader = new System.Windows.Forms.Label();
+            this.labelCodArtValue = new System.Windows.Forms.Label();
+            this.labelMarcaValue = new System.Windows.Forms.Label();
+            this.labelMarcaHeader = new System.Windows.Forms.Label();
+            this.labelCategoriaHeader = new System.Windows.Forms.Label();
+            this.labelCategoriaValue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArticulos)).BeginInit();
             this.SuspendLayout();
@@ -50,12 +58,13 @@
             this.dgvLista.Name = "dgvLista";
             this.dgvLista.Size = new System.Drawing.Size(127, 62);
             this.dgvLista.TabIndex = 0;
+            this.dgvLista.Visible = false;
             this.dgvLista.SelectionChanged += new System.EventHandler(this.dgvLista_SelectionChanged);
             // 
             // pbArticulos
             // 
             this.pbArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbArticulos.Location = new System.Drawing.Point(317, 47);
+            this.pbArticulos.Location = new System.Drawing.Point(466, 47);
             this.pbArticulos.Name = "pbArticulos";
             this.pbArticulos.Size = new System.Drawing.Size(258, 264);
             this.pbArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -91,11 +100,91 @@
             this.lbArticulos.TabIndex = 5;
             this.lbArticulos.SelectedValueChanged += new System.EventHandler(this.lbArticulos_SelectedValueChanged);
             // 
+            // labelDescriptionHeader
+            // 
+            this.labelDescriptionHeader.AutoSize = true;
+            this.labelDescriptionHeader.Location = new System.Drawing.Point(293, 88);
+            this.labelDescriptionHeader.Name = "labelDescriptionHeader";
+            this.labelDescriptionHeader.Size = new System.Drawing.Size(66, 13);
+            this.labelDescriptionHeader.TabIndex = 6;
+            this.labelDescriptionHeader.Text = "Descripcion:";
+            // 
+            // labelDescriptionValue
+            // 
+            this.labelDescriptionValue.AutoSize = true;
+            this.labelDescriptionValue.Location = new System.Drawing.Point(296, 105);
+            this.labelDescriptionValue.Name = "labelDescriptionValue";
+            this.labelDescriptionValue.Size = new System.Drawing.Size(32, 13);
+            this.labelDescriptionValue.TabIndex = 7;
+            this.labelDescriptionValue.Text = "xxxxx";
+            // 
+            // labelCodArtHeader
+            // 
+            this.labelCodArtHeader.AutoSize = true;
+            this.labelCodArtHeader.Location = new System.Drawing.Point(296, 47);
+            this.labelCodArtHeader.Name = "labelCodArtHeader";
+            this.labelCodArtHeader.Size = new System.Drawing.Size(96, 13);
+            this.labelCodArtHeader.TabIndex = 8;
+            this.labelCodArtHeader.Text = "Codigo de Articulo:";
+            // 
+            // labelCodArtValue
+            // 
+            this.labelCodArtValue.AutoSize = true;
+            this.labelCodArtValue.Location = new System.Drawing.Point(293, 60);
+            this.labelCodArtValue.Name = "labelCodArtValue";
+            this.labelCodArtValue.Size = new System.Drawing.Size(32, 13);
+            this.labelCodArtValue.TabIndex = 9;
+            this.labelCodArtValue.Text = "xxxxx";
+            // 
+            // labelMarcaValue
+            // 
+            this.labelMarcaValue.AutoSize = true;
+            this.labelMarcaValue.Location = new System.Drawing.Point(296, 160);
+            this.labelMarcaValue.Name = "labelMarcaValue";
+            this.labelMarcaValue.Size = new System.Drawing.Size(37, 13);
+            this.labelMarcaValue.TabIndex = 10;
+            this.labelMarcaValue.Text = "xxxxxx";
+            // 
+            // labelMarcaHeader
+            // 
+            this.labelMarcaHeader.AutoSize = true;
+            this.labelMarcaHeader.Location = new System.Drawing.Point(296, 147);
+            this.labelMarcaHeader.Name = "labelMarcaHeader";
+            this.labelMarcaHeader.Size = new System.Drawing.Size(40, 13);
+            this.labelMarcaHeader.TabIndex = 11;
+            this.labelMarcaHeader.Text = "Marca:";
+            // 
+            // labelCategoriaHeader
+            // 
+            this.labelCategoriaHeader.AutoSize = true;
+            this.labelCategoriaHeader.Location = new System.Drawing.Point(296, 190);
+            this.labelCategoriaHeader.Name = "labelCategoriaHeader";
+            this.labelCategoriaHeader.Size = new System.Drawing.Size(55, 13);
+            this.labelCategoriaHeader.TabIndex = 12;
+            this.labelCategoriaHeader.Text = "Categoria:";
+            // 
+            // labelCategoriaValue
+            // 
+            this.labelCategoriaValue.AutoSize = true;
+            this.labelCategoriaValue.Location = new System.Drawing.Point(296, 214);
+            this.labelCategoriaValue.Name = "labelCategoriaValue";
+            this.labelCategoriaValue.Size = new System.Drawing.Size(32, 13);
+            this.labelCategoriaValue.TabIndex = 13;
+            this.labelCategoriaValue.Text = "xxxxx";
+            // 
             // CatalogoPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 438);
+            this.Controls.Add(this.labelCategoriaValue);
+            this.Controls.Add(this.labelCategoriaHeader);
+            this.Controls.Add(this.labelMarcaHeader);
+            this.Controls.Add(this.labelMarcaValue);
+            this.Controls.Add(this.labelCodArtValue);
+            this.Controls.Add(this.labelCodArtHeader);
+            this.Controls.Add(this.labelDescriptionValue);
+            this.Controls.Add(this.labelDescriptionHeader);
             this.Controls.Add(this.lbArticulos);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
@@ -108,6 +197,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArticulos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -118,6 +208,14 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.ListBox lbArticulos;
+        private System.Windows.Forms.Label labelDescriptionHeader;
+        private System.Windows.Forms.Label labelDescriptionValue;
+        private System.Windows.Forms.Label labelCodArtHeader;
+        private System.Windows.Forms.Label labelCodArtValue;
+        private System.Windows.Forms.Label labelMarcaValue;
+        private System.Windows.Forms.Label labelMarcaHeader;
+        private System.Windows.Forms.Label labelCategoriaHeader;
+        private System.Windows.Forms.Label labelCategoriaValue;
     }
 }
 
