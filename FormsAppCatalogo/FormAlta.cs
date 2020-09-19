@@ -29,11 +29,12 @@ namespace FormsAppCatalogo
         {
             Articulos nuevo = new Articulos();
             ArticuloNegocio negocio = new ArticuloNegocio();
-
             nuevo.Nombre = txtNombre.Text;
             nuevo.Descripcion = txtDescripcion.Text;
-            //nuevo.Precio = txtPrecio.Text; -- como asignar a la variable precio?
-
+            nuevo.marca = (Marca)cbxMarca.SelectedItem;
+            nuevo.categoria = (Categoria)cbxCategoria.SelectedItem;
+            nuevo.Precio = (float)nudPrecio.Value;  // El numericUpDown toma valor decimal, se transforma en flotante
+            
             negocio.agregar(nuevo);
 
             Close();
@@ -53,8 +54,14 @@ namespace FormsAppCatalogo
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             cbxMarca.DataSource = marcaNegocio.listar();
-
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            cbxCategoria.DataSource = categoriaNegocio.listar(); 
            
+        }
+
+        private void nudPrecio_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }

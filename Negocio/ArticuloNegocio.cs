@@ -17,7 +17,7 @@ namespace Negocio
             SqlDataReader lector;
             List<Articulos> lista = new List<Articulos>();
             
-            conexion.ConnectionString = "data source = CAJS0718; initial catalog = CATALOGO_DB; integrated security = sspi";
+            conexion.ConnectionString = "data source = DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = "SELECT Nombre, ImagenUrl FROM ARTICULOS";
             comando.Connection = conexion;
@@ -29,7 +29,15 @@ namespace Negocio
             {
                 Articulos aux = new Articulos();
                 aux.Nombre = lector.GetString(0);
-                aux.Imagen = (string)lector["ImagenUrl"];
+
+                try
+                {
+                    aux.Imagen = (string)lector["ImagenUrl"];
+                }
+                catch (Exception E)
+                {
+
+                }
                 lista.Add(aux);
             }
             lector.Close();
@@ -42,9 +50,10 @@ namespace Negocio
             SqlConnection conexion = new SqlConnection();
             SqlCommand comando = new SqlCommand();
 
-            conexion.ConnectionString = "data source = CAJS0718; initial catalog = CATALOGO_DB; integrated security = sspi";
+            conexion.ConnectionString = "data source = DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
             comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "INSERT INTO ARTICULOS (Nombre,Descripcion,IdMarca,IdCategoria ,Precio) VALUES ('" +nuevo.Nombre+"','"+nuevo.Descripcion+" ', ' "+nuevo.Precio +" ')";
+            comando.CommandText = "INSERT INTO ARTICULOS(Nombre, Descripcion, IdMarca, IdCategoria, Precio) " + "VALUES('" + nuevo.Nombre + "', '" + nuevo.Descripcion + " ', " + nuevo.marca.ID + ", " + nuevo.categoria.ID + ", ' " + nuevo.Precio + " ')";
+            
             comando.Connection = conexion;
 
             conexion.Open();

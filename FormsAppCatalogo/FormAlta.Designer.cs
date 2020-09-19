@@ -37,9 +37,10 @@
             this.cbxCategoria = new System.Windows.Forms.ComboBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.nudPrecio = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -117,14 +118,6 @@
             this.txtDescripcion.Size = new System.Drawing.Size(121, 20);
             this.txtDescripcion.TabIndex = 8;
             // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(116, 170);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(121, 20);
-            this.txtPrecio.TabIndex = 9;
-            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPrecio);
-            // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(47, 231);
@@ -145,14 +138,29 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // nudPrecio
+            // 
+            this.nudPrecio.Location = new System.Drawing.Point(116, 176);
+            this.nudPrecio.Maximum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            0});
+            this.nudPrecio.Name = "nudPrecio";
+            this.nudPrecio.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.nudPrecio.Size = new System.Drawing.Size(121, 20);
+            this.nudPrecio.TabIndex = 12;
+            this.nudPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudPrecio.Leave += new System.EventHandler(this.nudPrecio_Leave);
+            // 
             // FormAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(330, 312);
+            this.Controls.Add(this.nudPrecio);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.cbxCategoria);
@@ -165,6 +173,7 @@
             this.Name = "FormAlta";
             this.Text = "Alta Articulo";
             this.Load += new System.EventHandler(this.FormAlta_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,8 +190,8 @@
         private System.Windows.Forms.ComboBox cbxCategoria;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.NumericUpDown nudPrecio;
     }
 }

@@ -5,7 +5,7 @@ Deberá ser un programa de escritorio que contemple la administración de artíc
 
 #Listado de artículos.-->TRERMINADO
 Búsqueda de artículos por distintos criterios.
-#Agregar artículos. (FALTA AGREGAR PRECIO Y CATEGORIAS DESPLEGABLE)
+#Agregar artículos. (Falta mapeo de id categoria y marca)
 Modificar artículos.
 Eliminar artículos.
 Ver detalle de un artículo.
@@ -24,3 +24,8 @@ Precio.
 Etapa 1: Construir las clases necesarias para el modelo de dicha aplicación junto a las ventanas con las que contará y su navegación.
 
 Etapa 2: Construir la interacción con la base de datos y validaciones correspondiente para dar vida a la funcionalidad.
+
+
+
+
+13:23  Se agrega clase CategoriaNegocio con el metodo listar. Se agrego al agregar articulos categoria desplegable y precio. Falta mapear ID cat y marca para el insert (inserta bien pero con id 0)

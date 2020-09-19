@@ -12,5 +12,10 @@ namespace Dominio
         public int ID;
         public string Descripcion;
         public string categoria;
+
+        public override string ToString()
+        {
+            return Descripcion;
+        }
     }
 }
