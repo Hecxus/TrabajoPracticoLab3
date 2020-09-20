@@ -21,7 +21,7 @@ namespace Negocio
             
             conexion.ConnectionString = "data source = CAJS0718; initial catalog = CATALOGO_DB; integrated security = sspi";
             comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "SELECT ARTICULOS.Nombre,MARCAS.Descripcion Narca, CATEGORIAS.Descripcion Categoria FROM ARTICULOS, CATEGORIAS, MARCAS WHERE ARTICULOS.IdCategoria = CATEGORIAS.Id AND ARTICULOS.IdMarca = MARCAS.Id ";
+            comando.CommandText = "SELECT ARTICULOS.Nombre,MARCAS.Descripcion Marca, CATEGORIAS.Descripcion Categoria FROM ARTICULOS, CATEGORIAS, MARCAS WHERE ARTICULOS.IdCategoria = CATEGORIAS.Id AND ARTICULOS.IdMarca = MARCAS.Id ";
             comando.Connection = conexion;
 
             conexion.Open();
@@ -30,13 +30,14 @@ namespace Negocio
             while(lector.Read())
             {
                 Articulos aux = new Articulos();
-                aux.ID = (int)lector["id"];
+                //aux.ID= lector.GetInt32(0);
+                //aux.ID = (int)lector["ID"];
 
                 aux.categoria = new Categoria();
                 aux.categoria.Descripcion = (string)lector["categoria"];
 
                 aux.marca = new Marca();
-                aux.marca.Descripcion = (string)lector["marca"];
+                aux.marca.Descripcion = (string)lector["Descripcion"];
 
 
                 try {aux.codArticulo = lector.GetString(1); 
@@ -48,9 +49,9 @@ namespace Negocio
                 try { aux.Descripcion = lector.GetString(3);
                 }catch { aux.Descripcion = "Sin descripcion"; }
                 
-                //aux.cate = lector.GetInt32(4);
+                //aux.categoria = lector.GetString(4);
                 //aux.codArticulo = lector.GetInt32(5);
-
+                //aux.marca = lector.GetString(5);
                 try
                 {
                     aux.Imagen = (string)lector["ImagenUrl"];
@@ -64,6 +65,27 @@ namespace Negocio
             lector.Close();
             conexion.Close();
             return lista;
+        }
+
+        public void modificar(Articulos actualizar)
+        {
+            SqlConnection conexion = new SqlConnection();
+            SqlCommand comando = new SqlCommand();
+
+            conexion.ConnectionString = "data source = CAJS0718; initial catalog = CATALOGO_DB; integrated security = sspi";
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = " UPDATE ARTICULOS SET Descripcion = @Descripcion,IdCategoria = @IdCataegria, IdMarca = @IdMarca ,ImagenUrl = @ImagenUrl, Precio = @Precio WHERE Id = @ID";
+            comando.Parameters.AddWithValue("@Descripcion", actualizar.Descripcion);
+            comando.Parameters.AddWithValue("@IdCategoria", actualizar.categoria.ID);
+            comando.Parameters.AddWithValue("@IdMarca", actualizar.marca.ID);
+            comando.Parameters.AddWithValue("@Precio", actualizar.Precio);
+            comando.Parameters.AddWithValue("@ImagenUrl", actualizar.Imagen);
+
+            comando.Connection = conexion;
+
+            conexion.Open();
+            comando.ExecuteNonQuery();
+
         }
 
         public void agregar(Articulos nuevo)

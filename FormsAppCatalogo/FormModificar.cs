@@ -36,17 +36,9 @@ namespace FormsAppCatalogo
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Articulos nuevo = new Articulos();
             ArticuloNegocio negocio = new ArticuloNegocio();
-            nuevo.Nombre = txtNombre.Text;
-            nuevo.Descripcion = txtDescripcion.Text;
-            nuevo.marca = (Marca)cbxMarca.SelectedItem;
-            nuevo.categoria = (Categoria)cbxCategoria.SelectedItem;
-            nuevo.Precio = (float)nudPrecio.Value;  // El numericUpDown toma valor decimal, se transforma en flotante
 
-            negocio.agregar(nuevo);
-
-            Close();
+            negocio.modificar();
 
         }
 

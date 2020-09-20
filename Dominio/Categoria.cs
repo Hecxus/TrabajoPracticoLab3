@@ -11,7 +11,7 @@ namespace Dominio
         //comentario prueba push
         public int ID;
         public string Descripcion;
-        public string categoria;
+        //public string categoria;
 
         public override string ToString()
         {
