@@ -52,7 +52,7 @@ namespace FormsAppCatalogo
             artTemporal.marca.ID = ((Marca)cbxMarca.SelectedItem).ID;
 
             artTemporal.Precio = (float)nudPrecio.Value;
-
+            artTemporal.Imagen = txtURL.Text;
             if (negocio.modificar(artTemporal))
             {
                 MessageBox.Show("Articulo modificado correctamente.");

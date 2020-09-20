@@ -12,6 +12,7 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
+        string rutaBaseDatos = "data source =DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
         public List<Articulos> listar()
         {
             SqlConnection conexion = new SqlConnection();
@@ -19,7 +20,7 @@ namespace Negocio
             SqlDataReader lector;
             List<Articulos> lista = new List<Articulos>();
             
-            conexion.ConnectionString = "data source = DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
+            conexion.ConnectionString = rutaBaseDatos;
             comando.CommandType = System.Data.CommandType.Text;
             //SELECT id,codigo,Nombre, descripcion,idMarca,idCategoria, ImagenUrl FROM ARTICULO
             comando.CommandText = "SELECT ARTICULOS.id,ARTICULOS.codigo,ARTICULOS.Nombre, ARTICULOS.descripcion,ARTICULOS.idMarca,ARTICULOS.idCategoria, MARCAS.Descripcion Marca, CATEGORIAS.Descripcion, ImagenUrl FROM ARTICULOS, CATEGORIAS, MARCAS WHERE ARTICULOS.IdCategoria = CATEGORIAS.Id AND ARTICULOS.IdMarca = MARCAS.Id ";
@@ -71,6 +72,65 @@ namespace Negocio
             return lista;
         }
 
+
+
+        public List<Articulos> listarConBusqueda(string query)
+        {
+            SqlConnection conexion = new SqlConnection();
+            SqlCommand comando = new SqlCommand();
+            SqlDataReader lector;
+            List<Articulos> lista = new List<Articulos>();
+
+            conexion.ConnectionString = rutaBaseDatos;
+            comando.CommandType = System.Data.CommandType.Text;
+            //SELECT id,codigo,Nombre, descripcion,idMarca,idCategoria, ImagenUrl FROM ARTICULO
+            comando.CommandText = "SELECT id,codigo,Nombre, descripcion,idMarca,idCategoria,  ImagenUrl FROM ARTICULOS WHERE "+query;
+            comando.Connection = conexion;
+
+            conexion.Open();
+            lector = comando.ExecuteReader();
+
+            while (lector.Read())
+            {
+                Articulos aux = new Articulos();
+                aux.ID = lector.GetInt32(0);
+
+                try
+                {
+                    aux.codArticulo = lector.GetString(1);
+                }
+                catch (Exception E)
+                { aux.codArticulo = "Sin codigo"; }
+
+                aux.Nombre = lector.GetString(2);
+
+                try
+                {
+                    aux.Descripcion = lector.GetString(3);
+                }
+                catch { aux.Descripcion = "Sin descripcion"; }
+
+
+
+                aux.categoria = new CategoriaNegocio().obtenerCategoria(lector.GetInt32(4));
+                aux.marca = new MarcaNegocio().obtenerMarca(lector.GetInt32(5));
+
+
+                try
+                {
+                    aux.Imagen = (string)lector["ImagenUrl"];
+                }
+                catch (Exception E)
+                {
+
+                }
+                lista.Add(aux);
+            }
+            lector.Close();
+            conexion.Close();
+            return lista;
+        }
+
         public bool modificar(Articulos actualizar)
         {
             SqlConnection conexion = new SqlConnection();
@@ -78,7 +138,7 @@ namespace Negocio
 
             try
             {
-                conexion.ConnectionString = "data source = DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
+                conexion.ConnectionString = rutaBaseDatos;
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = " UPDATE ARTICULOS SET nombre= @Nombre, Descripcion = @Descripcion,IdCategoria = @IdCategoria, IdMarca = @IdMarca , Precio = @Precio WHERE Id = @ID";//,ImagenUrl = @ImagenUrl
                 comando.Parameters.AddWithValue("@Nombre", actualizar.Nombre);
@@ -107,7 +167,7 @@ namespace Negocio
             SqlConnection conexion = new SqlConnection();
             SqlCommand comando = new SqlCommand();
 
-            conexion.ConnectionString = "data source = DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
+            conexion.ConnectionString = rutaBaseDatos;
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = "INSERT INTO ARTICULOS(Nombre, Descripcion, IdMarca, IdCategoria, Precio) " + "VALUES('" + nuevo.Nombre + "', '" + nuevo.Descripcion + " ', " + nuevo.marca.ID + ", " + nuevo.categoria.ID + ", ' " + nuevo.Precio + " ')";
             
@@ -124,7 +184,7 @@ namespace Negocio
             SqlCommand comando = new SqlCommand();
             try
             { 
-                conexion.ConnectionString = "data source = DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
+                conexion.ConnectionString = rutaBaseDatos;
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = String.Format("delete from articulos where id = {0}",articulo.ID);
             

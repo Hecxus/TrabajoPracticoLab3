@@ -41,6 +41,7 @@
             this.cbxCategoria = new System.Windows.Forms.ComboBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.Cancelar = new System.Windows.Forms.Button();
+            this.txtURL = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,11 +156,19 @@
             this.Cancelar.UseVisualStyleBackColor = true;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
+            // txtURL
+            // 
+            this.txtURL.Location = new System.Drawing.Point(142, 223);
+            this.txtURL.Name = "txtURL";
+            this.txtURL.Size = new System.Drawing.Size(121, 20);
+            this.txtURL.TabIndex = 15;
+            // 
             // FormModificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(359, 377);
+            this.Controls.Add(this.txtURL);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.cbxCategoria);
@@ -197,5 +206,6 @@
         private System.Windows.Forms.ComboBox cbxCategoria;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button Cancelar;
+        private System.Windows.Forms.TextBox txtURL;
     }
 }

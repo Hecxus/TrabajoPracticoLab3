@@ -37,10 +37,11 @@ namespace FormsAppCatalogo
             try
             {
                 Articulos art = (Articulos)lbArticulos.SelectedItem;
-            
+
+                if (art == null) return;
                 // Pone los datos en el detalle:
 
-                if (art.Descripcion.Length > 1) // + el final de la cadena (en blanco !=NULL)
+                if (!string.IsNullOrEmpty(art.Descripcion))// + el final de la cadena (en blanco !=NULL)
                     labelDescriptionValue.Text = art.Descripcion;
                 else
                     labelDescriptionValue.Text = "Sin descripcion";
@@ -90,6 +91,31 @@ namespace FormsAppCatalogo
         {
             FormModificar modificar= new FormModificar((Articulos)lbArticulos.SelectedItem);
             modificar.ShowDialog();
+            cargar();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            frmBuscar buscar = new frmBuscar();
+            buscar.ShowDialog();
+            if (buscar.articulos.Count!=0)
+            {
+                lbArticulos.DataSource = buscar.articulos;
+                btnLimpiar.Enabled = true;
+                btnLimpiar.Visible = false;
+            }
+            else
+            {
+                cargar();
+            }
+            
+            //TODO cargar
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            btnLimpiar.Enabled = false;
+            btnLimpiar.Visible = false;
             cargar();
         }
     }

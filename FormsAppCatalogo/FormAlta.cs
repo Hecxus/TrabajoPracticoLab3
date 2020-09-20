@@ -33,7 +33,7 @@ namespace FormsAppCatalogo
             nuevo.marca = (Marca)cbxMarca.SelectedItem;
             nuevo.categoria = (Categoria)cbxCategoria.SelectedItem;
             nuevo.Precio = (float)nudPrecio.Value;  // El numericUpDown toma valor decimal, se transforma en flotante
-            
+            nuevo.Imagen = tbURL.Text;
             negocio.agregar(nuevo);
 
             Close();
