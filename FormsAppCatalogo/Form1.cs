@@ -24,13 +24,13 @@ namespace FormsAppCatalogo
         private void cargar()
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            dgvLista.DataSource = negocio.listar();
-            dgvLista.Columns[0].Visible = false;
-            dgvLista.Columns[2].Visible = false;
-            dgvLista.Columns[3].Visible = false;
-            dgvLista.Columns[4].Visible = false;
-            dgvLista.Columns[5].Visible = false;
-            dgvLista.Columns[6].Visible = false;
+            //dgvLista.DataSource = negocio.listar();
+            //dgvLista.Columns[0].Visible = false;
+            //dgvLista.Columns[2].Visible = false;
+            //dgvLista.Columns[3].Visible = false;
+            //dgvLista.Columns[4].Visible = false;
+            //dgvLista.Columns[5].Visible = false;
+            //dgvLista.Columns[6].Visible = false;
 
             lbArticulos.DataSource = negocio.listar();
         }
@@ -59,7 +59,14 @@ namespace FormsAppCatalogo
                     labelDescriptionValue.Text = art.Descripcion;
                 else
                     labelDescriptionValue.Text = "Sin descripcion";
-
+                //if (art.categoria.categoria.Length > 1)
+                //    labelDescriptionValue.Text = art.categoria.categoria;
+                //else
+                //    labelDescriptionValue.Text = "Sin descripcion";
+                //if (art.marca.marca.Length > 1)
+                //    labelDescriptionValue.Text = art.marca.marca;
+                //else
+                //    labelDescriptionValue.Text = "Sin descripcion";
 
                 labelCodArtValue.Text = art.codArticulo.ToString();
 

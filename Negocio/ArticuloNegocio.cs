@@ -21,7 +21,7 @@ namespace Negocio
             
             conexion.ConnectionString = "data source = CAJS0718; initial catalog = CATALOGO_DB; integrated security = sspi";
             comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "SELECT id,codigo,Nombre, descripcion,idMarca,idCategoria, ImagenUrl FROM ARTICULOS";
+            comando.CommandText = "SELECT ARTICULOS.Nombre,MARCAS.Descripcion Narca, CATEGORIAS.Descripcion Categoria FROM ARTICULOS, CATEGORIAS, MARCAS WHERE ARTICULOS.IdCategoria = CATEGORIAS.Id AND ARTICULOS.IdMarca = MARCAS.Id ";
             comando.Connection = conexion;
 
             conexion.Open();
@@ -30,8 +30,15 @@ namespace Negocio
             while(lector.Read())
             {
                 Articulos aux = new Articulos();
-                aux.ID= lector.GetInt32(0);
-                //aux.Catgoria = new Categoria();
+                aux.ID = (int)lector["id"];
+
+                aux.categoria = new Categoria();
+                aux.categoria.Descripcion = (string)lector["categoria"];
+
+                aux.marca = new Marca();
+                aux.marca.Descripcion = (string)lector["marca"];
+
+
                 try {aux.codArticulo = lector.GetString(1); 
                 }catch (Exception E)
                 {aux.codArticulo = "Sin codigo";}
