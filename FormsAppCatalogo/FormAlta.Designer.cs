@@ -104,7 +104,6 @@
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(121, 21);
             this.cbxCategoria.TabIndex = 6;
-            // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(116, 25);

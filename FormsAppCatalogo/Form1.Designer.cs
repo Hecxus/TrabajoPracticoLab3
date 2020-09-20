@@ -41,6 +41,7 @@
             this.labelMarcaHeader = new System.Windows.Forms.Label();
             this.labelCategoriaHeader = new System.Windows.Forms.Label();
             this.labelCategoriaValue = new System.Windows.Forms.Label();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArticulos)).BeginInit();
             this.SuspendLayout();
@@ -73,7 +74,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(252, 362);
+            this.btnAgregar.Location = new System.Drawing.Point(212, 361);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 36);
             this.btnAgregar.TabIndex = 2;
@@ -83,9 +84,9 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(437, 364);
+            this.btnEliminar.Location = new System.Drawing.Point(437, 361);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 34);
+            this.btnEliminar.Size = new System.Drawing.Size(75, 37);
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar un articulo";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -172,11 +173,22 @@
             this.labelCategoriaValue.TabIndex = 13;
             this.labelCategoriaValue.Text = "xxxxx";
             // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(318, 361);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(74, 36);
+            this.btnModificar.TabIndex = 14;
+            this.btnModificar.Text = "Modificar articulo";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
             // CatalogoPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 438);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.labelCategoriaValue);
             this.Controls.Add(this.labelCategoriaHeader);
             this.Controls.Add(this.labelMarcaHeader);
@@ -216,6 +228,7 @@
         private System.Windows.Forms.Label labelMarcaHeader;
         private System.Windows.Forms.Label labelCategoriaHeader;
         private System.Windows.Forms.Label labelCategoriaValue;
+        private System.Windows.Forms.Button btnModificar;
     }
 }
 

@@ -19,7 +19,7 @@ namespace Negocio
             SqlDataReader lector;
             List<Articulos> lista = new List<Articulos>();
             
-            conexion.ConnectionString = "data source = DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
+            conexion.ConnectionString = "data source = CAJS0718; initial catalog = CATALOGO_DB; integrated security = sspi";
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = "SELECT id,codigo,Nombre, descripcion,idMarca,idCategoria, ImagenUrl FROM ARTICULOS";
             comando.Connection = conexion;
@@ -31,7 +31,7 @@ namespace Negocio
             {
                 Articulos aux = new Articulos();
                 aux.ID= lector.GetInt32(0);
-
+                //aux.Catgoria = new Categoria();
                 try {aux.codArticulo = lector.GetString(1); 
                 }catch (Exception E)
                 {aux.codArticulo = "Sin codigo";}
@@ -64,7 +64,7 @@ namespace Negocio
             SqlConnection conexion = new SqlConnection();
             SqlCommand comando = new SqlCommand();
 
-            conexion.ConnectionString = "data source = DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
+            conexion.ConnectionString = "data source = CAJS0718; initial catalog = CATALOGO_DB; integrated security = sspi";
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = "INSERT INTO ARTICULOS(Nombre, Descripcion, IdMarca, IdCategoria, Precio) " + "VALUES('" + nuevo.Nombre + "', '" + nuevo.Descripcion + " ', " + nuevo.marca.ID + ", " + nuevo.categoria.ID + ", ' " + nuevo.Precio + " ')";
             
@@ -81,7 +81,7 @@ namespace Negocio
             SqlCommand comando = new SqlCommand();
             try
             { 
-                conexion.ConnectionString = "data source = DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
+                conexion.ConnectionString = "data source = CAJS0718; initial catalog = CATALOGO_DB; integrated security = sspi";
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = String.Format("delete from articulos where id = {0}",articulo.ID);
             
