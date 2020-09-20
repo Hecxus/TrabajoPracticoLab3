@@ -28,6 +28,7 @@ namespace FormsAppCatalogo
         {
             Articulos nuevo = new Articulos();
             ArticuloNegocio negocio = new ArticuloNegocio();
+            nuevo.codArticulo = txtCodArticulo.Text;
             nuevo.Nombre = txtNombre.Text;
             nuevo.Descripcion = txtDescripcion.Text;
             nuevo.marca = (Marca)cbxMarca.SelectedItem;
@@ -56,6 +57,11 @@ namespace FormsAppCatalogo
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             cbxCategoria.DataSource = categoriaNegocio.listar(); 
            
+        }
+
+        private void lblCodArticulo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

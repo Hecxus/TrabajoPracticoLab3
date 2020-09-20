@@ -12,7 +12,7 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
-        string rutaBaseDatos = "data source =DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
+        string rutaBaseDatos = "data source = CAJS0718; initial catalog = CATALOGO_DB; integrated security = sspi";
         public List<Articulos> listar()
         {
             SqlConnection conexion = new SqlConnection();
@@ -146,7 +146,7 @@ namespace Negocio
                 comando.Parameters.AddWithValue("@IdCategoria", actualizar.categoria.ID);
                 comando.Parameters.AddWithValue("@IdMarca", actualizar.marca.ID);
                 comando.Parameters.AddWithValue("@Precio", actualizar.Precio);
-                //comando.Parameters.AddWithValue("@ImagenUrl", actualizar.Imagen);
+                comando.Parameters.AddWithValue("@ImagenUrl", actualizar.Imagen);
                 comando.Parameters.AddWithValue("@ID", actualizar.ID);
 
 
@@ -169,7 +169,7 @@ namespace Negocio
 
             conexion.ConnectionString = rutaBaseDatos;
             comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "INSERT INTO ARTICULOS(Nombre, Descripcion, IdMarca, IdCategoria, Precio) " + "VALUES('" + nuevo.Nombre + "', '" + nuevo.Descripcion + " ', " + nuevo.marca.ID + ", " + nuevo.categoria.ID + ", ' " + nuevo.Precio + " ')";
+            comando.CommandText = "INSERT INTO ARTICULOS(Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) " + "VALUES(' "+nuevo.codArticulo+"','" + nuevo.Nombre + "', '" + nuevo.Descripcion + " ', " + nuevo.marca.ID + ", " + nuevo.categoria.ID + ", ' " + nuevo.Precio + " ')";
             
             comando.Connection = conexion;
 
