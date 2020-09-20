@@ -102,7 +102,7 @@ namespace FormsAppCatalogo
             {
                 lbArticulos.DataSource = buscar.articulos;
                 btnLimpiar.Enabled = true;
-                btnLimpiar.Visible = false;
+                btnLimpiar.Visible = true;
             }
             else
             {

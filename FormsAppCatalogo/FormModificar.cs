@@ -43,6 +43,7 @@ namespace FormsAppCatalogo
             Articulos artTemporal = new Articulos();
 
             artTemporal.ID = articulo.ID;
+            artTemporal.codArticulo = txtCodArt.Text;
             artTemporal.Nombre = txtNombre.Text;
             artTemporal.Descripcion = txtDescripcion.Text;
             artTemporal.categoria = new Categoria();

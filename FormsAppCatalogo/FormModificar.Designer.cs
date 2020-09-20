@@ -42,6 +42,8 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.Cancelar = new System.Windows.Forms.Button();
             this.txtURL = new System.Windows.Forms.TextBox();
+            this.lvlCodArt = new System.Windows.Forms.Label();
+            this.txtCodArt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,11 +165,29 @@
             this.txtURL.Size = new System.Drawing.Size(121, 20);
             this.txtURL.TabIndex = 15;
             // 
+            // lvlCodArt
+            // 
+            this.lvlCodArt.AutoSize = true;
+            this.lvlCodArt.Location = new System.Drawing.Point(35, 18);
+            this.lvlCodArt.Name = "lvlCodArt";
+            this.lvlCodArt.Size = new System.Drawing.Size(81, 13);
+            this.lvlCodArt.TabIndex = 16;
+            this.lvlCodArt.Text = "Codigo Articulo:";
+            // 
+            // txtCodArt
+            // 
+            this.txtCodArt.Location = new System.Drawing.Point(146, 11);
+            this.txtCodArt.Name = "txtCodArt";
+            this.txtCodArt.Size = new System.Drawing.Size(73, 20);
+            this.txtCodArt.TabIndex = 17;
+            // 
             // FormModificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(359, 377);
+            this.Controls.Add(this.txtCodArt);
+            this.Controls.Add(this.lvlCodArt);
             this.Controls.Add(this.txtURL);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.btnAceptar);
@@ -207,5 +227,7 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button Cancelar;
         private System.Windows.Forms.TextBox txtURL;
+        private System.Windows.Forms.Label lvlCodArt;
+        private System.Windows.Forms.TextBox txtCodArt;
     }
 }

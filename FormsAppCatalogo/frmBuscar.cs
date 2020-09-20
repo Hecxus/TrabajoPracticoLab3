@@ -17,6 +17,7 @@ namespace FormsAppCatalogo
         string queryDinamica;
         int queryParameters = 0;
         public List<Articulos> articulos;
+        bool busquedaExitosa = false;
         public frmBuscar()
         {
             InitializeComponent();
@@ -61,12 +62,15 @@ namespace FormsAppCatalogo
 
 
 
-            MessageBox.Show(queryDinamica);
+            //MessageBox.Show(queryDinamica);
 
             articulos = new ArticuloNegocio().listarConBusqueda(queryDinamica);
 
+            queryDinamica = String.Empty;
+            queryParameters = 0;
             if (articulos.Count()>0)
             {
+                busquedaExitosa = true;
                 Close();
             }
             else
@@ -96,7 +100,8 @@ namespace FormsAppCatalogo
 
         private void frmBuscar_FormClosed(object sender, FormClosedEventArgs e)
         {
-            articulos = new List<Articulos>();
+            if (!busquedaExitosa)
+                articulos = new List<Articulos>();
         }
 
         private void chbCategoria_CheckedChanged(object sender, EventArgs e)
