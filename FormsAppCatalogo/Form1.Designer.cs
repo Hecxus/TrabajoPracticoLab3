@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvLista = new System.Windows.Forms.DataGridView();
             this.pbArticulos = new System.Windows.Forms.PictureBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -42,25 +41,8 @@
             this.labelCategoriaHeader = new System.Windows.Forms.Label();
             this.labelCategoriaValue = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArticulos)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvLista
-            // 
-            this.dgvLista.AllowUserToAddRows = false;
-            this.dgvLista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLista.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.dgvLista.Location = new System.Drawing.Point(41, 364);
-            this.dgvLista.MultiSelect = false;
-            this.dgvLista.Name = "dgvLista";
-            this.dgvLista.Size = new System.Drawing.Size(127, 62);
-            this.dgvLista.TabIndex = 0;
-            this.dgvLista.Visible = false;
-            this.dgvLista.SelectionChanged += new System.EventHandler(this.dgvLista_SelectionChanged);
             // 
             // pbArticulos
             // 
@@ -201,12 +183,10 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pbArticulos);
-            this.Controls.Add(this.dgvLista);
             this.MinimumSize = new System.Drawing.Size(761, 456);
             this.Name = "CatalogoPrincipal";
             this.Text = "Catalogo";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArticulos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -214,8 +194,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvLista;
         private System.Windows.Forms.PictureBox pbArticulos;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;

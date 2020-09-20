@@ -26,50 +26,30 @@ namespace FormsAppCatalogo
             ArticuloNegocio negocio = new ArticuloNegocio();
             //dgvLista.DataSource = negocio.listar();
             //dgvLista.Columns[0].Visible = false;
-            //dgvLista.Columns[2].Visible = false;
-            //dgvLista.Columns[3].Visible = false;
-            //dgvLista.Columns[4].Visible = false;
-            //dgvLista.Columns[5].Visible = false;
-            //dgvLista.Columns[6].Visible = false;
 
             lbArticulos.DataSource = negocio.listar();
         }
-        private void dgvLista_SelectionChanged(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    Articulos art = (Articulos)dgvLista.CurrentRow.DataBoundItem;
-            //    pbArticulos.Load(art.Imagen);
-            //}
-            //catch(Exception) 
-            //{
 
-            //}
-
-        }
         private void lbArticulos_SelectedValueChanged(object sender, EventArgs e)
         {
+
+            
             try
             {
                 Articulos art = (Articulos)lbArticulos.SelectedItem;
-
+            
                 // Pone los datos en el detalle:
 
                 if (art.Descripcion.Length > 1) // + el final de la cadena (en blanco !=NULL)
                     labelDescriptionValue.Text = art.Descripcion;
                 else
                     labelDescriptionValue.Text = "Sin descripcion";
-                //if (art.categoria.categoria.Length > 1)
-                //    labelDescriptionValue.Text = art.categoria.categoria;
-                //else
-                //    labelDescriptionValue.Text = "Sin descripcion";
-                //if (art.marca.marca.Length > 1)
-                //    labelDescriptionValue.Text = art.marca.marca;
-                //else
-                //    labelDescriptionValue.Text = "Sin descripcion";
-
+                
                 labelCodArtValue.Text = art.codArticulo.ToString();
 
+                labelCategoriaValue.Text = art.categoria.Descripcion;
+
+                labelMarcaValue.Text = art.marca.Descripcion;
 
                 pbArticulos.Load(art.Imagen);
             }
@@ -108,7 +88,7 @@ namespace FormsAppCatalogo
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            FormModificar modificar= new FormModificar();
+            FormModificar modificar= new FormModificar((Articulos)lbArticulos.SelectedItem);
             modificar.ShowDialog();
             cargar();
         }

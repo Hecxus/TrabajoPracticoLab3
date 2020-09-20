@@ -14,14 +14,17 @@ namespace FormsAppCatalogo
 {
     public partial class FormModificar : Form
     {
-        public FormModificar()
+        Articulos articulo;
+        public FormModificar(Articulos _articulo)
         {
+            articulo = _articulo;
             InitializeComponent();
 
         }
 
         private void FormModificar_Load(object sender, EventArgs e)
         {
+
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             cbxMarca.DataSource = marcaNegocio.listar();
             cbxMarca.ValueMember = "Id";
@@ -37,9 +40,28 @@ namespace FormsAppCatalogo
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulos artTemporal = new Articulos();
 
-            negocio.modificar();
+            artTemporal.ID = articulo.ID;
+            artTemporal.Nombre = txtNombre.Text;
+            artTemporal.Descripcion = txtDescripcion.Text;
+            artTemporal.categoria = new Categoria();
+            artTemporal.categoria.ID = ((Categoria)cbxCategoria.SelectedItem).ID;
 
+            artTemporal.marca = new Marca();
+            artTemporal.marca.ID = ((Marca)cbxMarca.SelectedItem).ID;
+
+            artTemporal.Precio = (float)nudPrecio.Value;
+
+            if (negocio.modificar(artTemporal))
+            {
+                MessageBox.Show("Articulo modificado correctamente.");
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("El articulo no pudo ser modificado.");
+            }
         }
 
         private void Cancelar_Click(object sender, EventArgs e)
