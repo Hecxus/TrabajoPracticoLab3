@@ -170,7 +170,8 @@ namespace Negocio
 
             conexion.ConnectionString = rutaBaseDatos;
             comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "INSERT INTO ARTICULOS(Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) " + "VALUES(' "+nuevo.codArticulo+"','" + nuevo.Nombre + "', '" + nuevo.Descripcion + " ', " + nuevo.marca.ID + ", " + nuevo.categoria.ID + ", ' " + nuevo.Precio + " ')";
+            comando.CommandText = "INSERT INTO ARTICULOS(Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio,imagenurl) " + "VALUES('"+nuevo.codArticulo+"','" +
+                nuevo.Nombre +"', '" + nuevo.Descripcion + "', " + nuevo.marca.ID + ", " + nuevo.categoria.ID +", '"+ nuevo.Precio +"','"+nuevo.Imagen+"')";
             
             comando.Connection = conexion;
 
