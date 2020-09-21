@@ -27,13 +27,17 @@ namespace FormsAppCatalogo
 
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             cbxMarca.DataSource = marcaNegocio.listar();
-            cbxMarca.ValueMember = "Id";
-            cbxMarca.DisplayMember = "Descripcion";
+            txtCodArt.Text = articulo.codArticulo;
+            txtNombre.Text = articulo.Nombre;
+            txtDescripcion.Text = articulo.Descripcion;
+            //cbxMarca.SelectedValue = articulo.marca.ID;
+
+            //cbxMarca.DisplayMember = "Descripcion";
 
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             cbxCategoria.DataSource = categoriaNegocio.listar();
-            //cbxCategoria.ValueMember = "Id";
-            cbxCategoria.DisplayMember = "Descripcion";
+            //cbxCategoria.SelectedValue = articulo.categoria.ID;
+            //cbxCategoria.DisplayMember = "Descripcion";
 
         }
 
