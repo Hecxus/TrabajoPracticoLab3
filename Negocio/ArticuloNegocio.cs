@@ -12,7 +12,7 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
-        string rutaBaseDatos = "data source = CAJS0718; initial catalog = CATALOGO_DB; integrated security = sspi";
+        string rutaBaseDatos = "data source = DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
         public List<Articulos> listar()
         {
             SqlConnection conexion = new SqlConnection();
@@ -140,7 +140,7 @@ namespace Negocio
             {
                 conexion.ConnectionString = rutaBaseDatos;
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = " UPDATE ARTICULOS SET codigo = @Codigo, nombre= @Nombre, Descripcion = @Descripcion,IdCategoria = @IdCategoria, IdMarca = @IdMarca , Precio = @Precio WHERE Id = @ID";//,ImagenUrl = @ImagenUrl
+                comando.CommandText = " UPDATE ARTICULOS SET codigo = @Codigo, nombre= @Nombre, Descripcion = @Descripcion,IdCategoria = @IdCategoria, IdMarca = @IdMarca , Precio = @Precio ,ImagenUrl = @ImagenUrl WHERE Id = @ID";
                 comando.Parameters.AddWithValue("@Codigo", actualizar.Nombre);
                 comando.Parameters.AddWithValue("@Nombre", actualizar.Nombre);
                 comando.Parameters.AddWithValue("@Descripcion", actualizar.Descripcion);
