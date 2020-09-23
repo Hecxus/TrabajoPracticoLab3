@@ -12,7 +12,7 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
-        string rutaBaseDatos = "data source = DESKTOP-FDLLM2V\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
+        string rutaBaseDatos = "data source = CAJS0718; initial catalog = CATALOGO_DB; integrated security = sspi";
         public List<Articulos> listar()
         {
             SqlConnection conexion = new SqlConnection();
@@ -23,7 +23,7 @@ namespace Negocio
             conexion.ConnectionString = rutaBaseDatos;
             comando.CommandType = System.Data.CommandType.Text;
             //SELECT id,codigo,Nombre, descripcion,idMarca,idCategoria, ImagenUrl FROM ARTICULO
-            comando.CommandText = "SELECT ARTICULOS.id,ARTICULOS.codigo,ARTICULOS.Nombre, ARTICULOS.descripcion,ARTICULOS.idMarca,ARTICULOS.idCategoria, MARCAS.Descripcion Marca, CATEGORIAS.Descripcion,ARTICULOS.precio ImagenUrl FROM ARTICULOS, CATEGORIAS, MARCAS WHERE ARTICULOS.IdCategoria = CATEGORIAS.Id AND ARTICULOS.IdMarca = MARCAS.Id ";
+            comando.CommandText = "SELECT ARTICULOS.id,ARTICULOS.codigo,ARTICULOS.Nombre, ARTICULOS.descripcion,ARTICULOS.idMarca,ARTICULOS.idCategoria, MARCAS.Descripcion Marca, CATEGORIAS.Descripcion,ARTICULOS.precio, ImagenUrl FROM ARTICULOS, CATEGORIAS, MARCAS WHERE ARTICULOS.IdCategoria = CATEGORIAS.Id AND ARTICULOS.IdMarca = MARCAS.Id ";
             comando.Connection = conexion;
 
             conexion.Open();

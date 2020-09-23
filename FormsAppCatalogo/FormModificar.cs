@@ -32,8 +32,8 @@ namespace FormsAppCatalogo
             txtDescripcion.Text = articulo.Descripcion;
             txtURL.Text = articulo.Imagen;
             nudPrecio.Value = (decimal)articulo.Precio;
+            
             //cbxMarca.SelectedValue = articulo.marca.ID;
-
             //cbxMarca.DisplayMember = "Descripcion";
 
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();

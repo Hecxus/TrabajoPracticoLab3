@@ -80,6 +80,7 @@
             // 
             // lbArticulos
             // 
+            this.lbArticulos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lbArticulos.FormattingEnabled = true;
             this.lbArticulos.Location = new System.Drawing.Point(82, 47);
             this.lbArticulos.Name = "lbArticulos";
@@ -212,6 +213,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(745, 438);
             this.Controls.Add(this.lblPrecioValue);
             this.Controls.Add(this.lblPrecioHeader);
@@ -230,6 +232,8 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pbArticulos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(761, 456);
             this.Name = "CatalogoPrincipal";
             this.Text = "Catalogo";

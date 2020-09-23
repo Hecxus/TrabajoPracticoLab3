@@ -76,6 +76,7 @@
             // 
             // cbxMarca
             // 
+            this.cbxMarca.BackColor = System.Drawing.Color.Gainsboro;
             this.cbxMarca.FormattingEnabled = true;
             this.cbxMarca.Location = new System.Drawing.Point(139, 131);
             this.cbxMarca.Name = "cbxMarca";
@@ -102,6 +103,7 @@
             // 
             // cbxCategoria
             // 
+            this.cbxCategoria.BackColor = System.Drawing.Color.Gainsboro;
             this.cbxCategoria.FormattingEnabled = true;
             this.cbxCategoria.Location = new System.Drawing.Point(139, 172);
             this.cbxCategoria.Name = "cbxCategoria";
@@ -110,6 +112,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.BackColor = System.Drawing.Color.Gainsboro;
             this.txtNombre.Location = new System.Drawing.Point(139, 65);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(121, 20);
@@ -117,6 +120,7 @@
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.BackColor = System.Drawing.Color.Gainsboro;
             this.txtDescripcion.Location = new System.Drawing.Point(139, 96);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(121, 20);
@@ -144,6 +148,7 @@
             // 
             // nudPrecio
             // 
+            this.nudPrecio.BackColor = System.Drawing.Color.Gainsboro;
             this.nudPrecio.Location = new System.Drawing.Point(139, 211);
             this.nudPrecio.Maximum = new decimal(new int[] {
             500000,
@@ -158,6 +163,7 @@
             // 
             // tbURL
             // 
+            this.tbURL.BackColor = System.Drawing.Color.Gainsboro;
             this.tbURL.Location = new System.Drawing.Point(139, 253);
             this.tbURL.Name = "tbURL";
             this.tbURL.Size = new System.Drawing.Size(121, 20);
@@ -184,6 +190,7 @@
             // 
             // txtCodArticulo
             // 
+            this.txtCodArticulo.BackColor = System.Drawing.Color.Gainsboro;
             this.txtCodArticulo.Location = new System.Drawing.Point(139, 32);
             this.txtCodArticulo.Name = "txtCodArticulo";
             this.txtCodArticulo.Size = new System.Drawing.Size(121, 20);
@@ -193,6 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(364, 371);
             this.Controls.Add(this.txtCodArticulo);
             this.Controls.Add(this.lblCodArticulo);
@@ -210,6 +218,7 @@
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblNombre);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormAlta";
             this.Text = "Alta Articulo";
             this.Load += new System.EventHandler(this.FormAlta_Load);

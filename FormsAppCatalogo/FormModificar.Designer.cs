@@ -49,6 +49,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.BackColor = System.Drawing.Color.Gainsboro;
             this.txtNombre.Location = new System.Drawing.Point(142, 38);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(121, 20);
@@ -110,6 +111,7 @@
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.BackColor = System.Drawing.Color.Gainsboro;
             this.txtDescripcion.Location = new System.Drawing.Point(142, 71);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(121, 20);
@@ -117,6 +119,7 @@
             // 
             // nudPrecio
             // 
+            this.nudPrecio.BackColor = System.Drawing.Color.Gainsboro;
             this.nudPrecio.Location = new System.Drawing.Point(142, 110);
             this.nudPrecio.Maximum = new decimal(new int[] {
             500000,
@@ -129,6 +132,7 @@
             // 
             // cbxMarca
             // 
+            this.cbxMarca.BackColor = System.Drawing.Color.Gainsboro;
             this.cbxMarca.FormattingEnabled = true;
             this.cbxMarca.Location = new System.Drawing.Point(142, 143);
             this.cbxMarca.Name = "cbxMarca";
@@ -137,6 +141,7 @@
             // 
             // cbxCategoria
             // 
+            this.cbxCategoria.BackColor = System.Drawing.Color.Gainsboro;
             this.cbxCategoria.FormattingEnabled = true;
             this.cbxCategoria.Location = new System.Drawing.Point(142, 178);
             this.cbxCategoria.Name = "cbxCategoria";
@@ -165,6 +170,7 @@
             // 
             // txtURL
             // 
+            this.txtURL.BackColor = System.Drawing.Color.Gainsboro;
             this.txtURL.Location = new System.Drawing.Point(142, 223);
             this.txtURL.Name = "txtURL";
             this.txtURL.Size = new System.Drawing.Size(121, 20);
@@ -181,6 +187,7 @@
             // 
             // txtCodArt
             // 
+            this.txtCodArt.BackColor = System.Drawing.Color.Gainsboro;
             this.txtCodArt.Location = new System.Drawing.Point(142, 11);
             this.txtCodArt.Name = "txtCodArt";
             this.txtCodArt.Size = new System.Drawing.Size(121, 20);
@@ -190,6 +197,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(359, 377);
             this.Controls.Add(this.txtCodArt);
             this.Controls.Add(this.lvlCodArt);
