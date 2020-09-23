@@ -118,6 +118,11 @@
             // nudPrecio
             // 
             this.nudPrecio.Location = new System.Drawing.Point(142, 110);
+            this.nudPrecio.Maximum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            0});
             this.nudPrecio.Name = "nudPrecio";
             this.nudPrecio.Size = new System.Drawing.Size(121, 20);
             this.nudPrecio.TabIndex = 10;

@@ -23,7 +23,7 @@ namespace Negocio
             conexion.ConnectionString = rutaBaseDatos;
             comando.CommandType = System.Data.CommandType.Text;
             //SELECT id,codigo,Nombre, descripcion,idMarca,idCategoria, ImagenUrl FROM ARTICULO
-            comando.CommandText = "SELECT ARTICULOS.id,ARTICULOS.codigo,ARTICULOS.Nombre, ARTICULOS.descripcion,ARTICULOS.idMarca,ARTICULOS.idCategoria, MARCAS.Descripcion Marca, CATEGORIAS.Descripcion, ImagenUrl FROM ARTICULOS, CATEGORIAS, MARCAS WHERE ARTICULOS.IdCategoria = CATEGORIAS.Id AND ARTICULOS.IdMarca = MARCAS.Id ";
+            comando.CommandText = "SELECT ARTICULOS.id,ARTICULOS.codigo,ARTICULOS.Nombre, ARTICULOS.descripcion,ARTICULOS.idMarca,ARTICULOS.idCategoria, MARCAS.Descripcion Marca, CATEGORIAS.Descripcion,ARTICULOS.precio ImagenUrl FROM ARTICULOS, CATEGORIAS, MARCAS WHERE ARTICULOS.IdCategoria = CATEGORIAS.Id AND ARTICULOS.IdMarca = MARCAS.Id ";
             comando.Connection = conexion;
 
             conexion.Open();
@@ -55,6 +55,8 @@ namespace Negocio
                 aux.marca.Descripcion = lector.GetString(6);
                 aux.categoria.Descripcion = lector.GetString(7);
 
+                aux.Precio = (float)lector.GetDecimal(8);
+
                 
 
                 try
@@ -84,7 +86,7 @@ namespace Negocio
             conexion.ConnectionString = rutaBaseDatos;
             comando.CommandType = System.Data.CommandType.Text;
             //SELECT id,codigo,Nombre, descripcion,idMarca,idCategoria, ImagenUrl FROM ARTICULO
-            comando.CommandText = "SELECT id,codigo,Nombre, descripcion,idMarca,idCategoria,  ImagenUrl FROM ARTICULOS WHERE "+query;
+            comando.CommandText = "SELECT id,codigo,Nombre, descripcion,idMarca,idCategoria,precio,  ImagenUrl FROM ARTICULOS WHERE "+query;
             comando.Connection = conexion;
 
             conexion.Open();
@@ -114,7 +116,7 @@ namespace Negocio
 
                 aux.categoria = new CategoriaNegocio().obtenerCategoria(lector.GetInt32(4));
                 aux.marca = new MarcaNegocio().obtenerMarca(lector.GetInt32(5));
-
+                aux.Precio = (float)lector.GetDecimal(6);
 
                 try
                 {
@@ -141,7 +143,7 @@ namespace Negocio
                 conexion.ConnectionString = rutaBaseDatos;
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = " UPDATE ARTICULOS SET codigo = @Codigo, nombre= @Nombre, Descripcion = @Descripcion,IdCategoria = @IdCategoria, IdMarca = @IdMarca , Precio = @Precio ,ImagenUrl = @ImagenUrl WHERE Id = @ID";
-                comando.Parameters.AddWithValue("@Codigo", actualizar.Nombre);
+                comando.Parameters.AddWithValue("@Codigo", actualizar.codArticulo);
                 comando.Parameters.AddWithValue("@Nombre", actualizar.Nombre);
                 comando.Parameters.AddWithValue("@Descripcion", actualizar.Descripcion);
                 comando.Parameters.AddWithValue("@IdCategoria", actualizar.categoria.ID);

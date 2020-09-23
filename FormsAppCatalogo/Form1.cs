@@ -52,6 +52,8 @@ namespace FormsAppCatalogo
 
                 labelMarcaValue.Text = art.marca.Descripcion;
 
+                lblPrecioValue.Text = String.Format("{0:0.00}",art.Precio);
+
                 pbArticulos.Load(art.Imagen);
             }
             catch (Exception)

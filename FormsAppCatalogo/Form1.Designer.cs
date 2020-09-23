@@ -43,6 +43,8 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.lblPrecioHeader = new System.Windows.Forms.Label();
+            this.lblPrecioValue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbArticulos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -188,11 +190,31 @@
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // lblPrecioHeader
+            // 
+            this.lblPrecioHeader.AutoSize = true;
+            this.lblPrecioHeader.Location = new System.Drawing.Point(296, 243);
+            this.lblPrecioHeader.Name = "lblPrecioHeader";
+            this.lblPrecioHeader.Size = new System.Drawing.Size(40, 13);
+            this.lblPrecioHeader.TabIndex = 17;
+            this.lblPrecioHeader.Text = "Precio:";
+            // 
+            // lblPrecioValue
+            // 
+            this.lblPrecioValue.AutoSize = true;
+            this.lblPrecioValue.Location = new System.Drawing.Point(296, 270);
+            this.lblPrecioValue.Name = "lblPrecioValue";
+            this.lblPrecioValue.Size = new System.Drawing.Size(37, 13);
+            this.lblPrecioValue.TabIndex = 18;
+            this.lblPrecioValue.Text = "xxxxxx";
+            // 
             // CatalogoPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 438);
+            this.Controls.Add(this.lblPrecioValue);
+            this.Controls.Add(this.lblPrecioHeader);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnModificar);
@@ -234,6 +256,8 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Label lblPrecioHeader;
+        private System.Windows.Forms.Label lblPrecioValue;
     }
 }
 

@@ -62,7 +62,7 @@ namespace FormsAppCatalogo
 
 
 
-            MessageBox.Show(queryDinamica);
+            //MessageBox.Show(queryDinamica);
 
             articulos = new ArticuloNegocio().listarConBusqueda(queryDinamica);
 
