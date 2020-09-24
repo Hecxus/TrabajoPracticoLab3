@@ -24,7 +24,6 @@ namespace FormsAppCatalogo
 
         private void FormModificar_Load(object sender, EventArgs e)
         {
-
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             cbxMarca.DataSource = marcaNegocio.listar();
             txtCodArt.Text = articulo.codArticulo;
@@ -32,14 +31,19 @@ namespace FormsAppCatalogo
             txtDescripcion.Text = articulo.Descripcion;
             txtURL.Text = articulo.Imagen;
             nudPrecio.Value = (decimal)articulo.Precio;
-            
-            //cbxMarca.SelectedValue = articulo.marca.ID;
-            //cbxMarca.DisplayMember = "Descripcion";
+
+            cbxMarca.ValueMember = "Id";
+            cbxMarca.DisplayMember = "Descripcion";
+            cbxMarca.SelectedValue = articulo.marca.ID;
+            //
 
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             cbxCategoria.DataSource = categoriaNegocio.listar();
-            //cbxCategoria.SelectedValue = articulo.categoria.ID;
+
+            //cbxCategoria.ValueMember = "Id";
             //cbxCategoria.DisplayMember = "Descripcion";
+            //cbxCategoria.SelectedValue = articulo.categoria.ID;
+            //
 
         }
 
